@@ -54,7 +54,7 @@ class ExampleTest {
         expeseList.add(expense)
         expeseList.add(expense2)
         //THEN
-        assertNotEquals(expeseList[0].category,expeseList[2].category)
+        assertNotEquals(expeseList[0].category,expeseList[1].category)
     }
 
 }
