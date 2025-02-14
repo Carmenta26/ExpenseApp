@@ -33,6 +33,9 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(project.dependencies.platform("io.insert-koin:koin-bom:3.5.1"))
+            implementation("io.insert-koin:koin-kore")
+            implementation("io.insert-koin:koin-android")
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -50,7 +53,11 @@ kotlin {
             api("moe.tlaster:precompose:1.6.2")
             //ViewModel
             api("moe.tlaster:precompose-viewmodel:1.6.2")
-
+            //Coin Injeccion
+            implementation(project.dependencies.platform("io.insert-koin:koin-bom:3.5.1"))
+            implementation("io.insert-koin:koin-kore")
+            implementation("io.insert-koin:koin-compose")
+            api("moe.tlaster:precompose-koin:1.6.2")
         }
         commonTest.dependencies{
             implementation(libs.kotlin.test)
