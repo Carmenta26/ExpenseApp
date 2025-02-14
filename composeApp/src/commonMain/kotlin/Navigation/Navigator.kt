@@ -50,3 +50,26 @@ fun Navigation(navigator: Navigator){
         }
     }
 }
+
+
+fun main(){
+    val car = Car(Engine(horsePower = 30))
+    car.start()
+}
+
+
+class Car (private val engine: Engine) {
+
+
+    fun start(){
+        engine.start()
+    }
+}
+
+class Engine ( private val horsePower: Int){
+
+    fun start(){
+        println("Se arranco el motor .. HP:  $horsePower")
+    }
+
+}
