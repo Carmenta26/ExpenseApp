@@ -35,12 +35,15 @@ import moe.tlaster.precompose.navigation.Navigator
 import moe.tlaster.precompose.navigation.path
 import moe.tlaster.precompose.navigation.rememberNavigator
 import org.jetbrains.compose.resources.imageResource
+
 import kotlin.contracts.Returns
 
 @Composable
 @Preview
 fun App() {
     PreComposeApp {
+
+
         val colors = getColorsTheme()
 
         AppTheme {
@@ -50,29 +53,32 @@ fun App() {
             Scaffold(
                 modifier = Modifier.fillMaxSize(),
                 topBar = {
-                    TopAppBar(elevation = 0.dp, title = {
-                        Text(titleToBar, fontSize = 25.sp, color = colors.textColor)
-                    },
+                    TopAppBar(
+                        elevation = 0.dp, title = {
+                            Text(titleToBar, fontSize = 25.sp, color = colors.textColor)
+                        },
                         navigationIcon = {
 
-                            if(isEditOrAddExpenses){
+                            if (isEditOrAddExpenses) {
                                 IconButton(
                                     onClick = {
                                         navigator.popBackStack()
                                     }
-                                ){
+                                ) {
                                     Icon(
                                         modifier = Modifier.padding(
-                                            start = 16.dp),
+                                            start = 16.dp
+                                        ),
                                         imageVector = Icons.Default.ArrowBack,
                                         tint = colors.textColor,
                                         contentDescription = "back arrow icon"
                                     )
                                 }
-                            }else{
+                            } else {
                                 Icon(
                                     modifier = Modifier.padding(
-                                        start = 16.dp),
+                                        start = 16.dp
+                                    ),
                                     imageVector = Icons.Default.Apps,
                                     tint = colors.textColor,
                                     contentDescription = "Dashboard Icon"
@@ -85,7 +91,7 @@ fun App() {
                 },
 
                 floatingActionButton = {
-                    if(!isEditOrAddExpenses){
+                    if (!isEditOrAddExpenses) {
                         FloatingActionButton(
                             modifier = Modifier.padding(8.dp),
                             onClick = {
@@ -94,7 +100,7 @@ fun App() {
                             shape = RoundedCornerShape(50.dp),
                             backgroundColor = colors.addIconColor,
                             contentColor = Color.White
-                        ){
+                        ) {
                             Icon(
                                 imageVector = Icons.Default.Add,
                                 tint = Color.White,
@@ -117,10 +123,11 @@ fun App() {
 
 
 @Composable
-fun getTitleToAppBar(navigator: Navigator): String{
+fun getTitleToAppBar(navigator: Navigator): String {
     var titleTopBar = TitleTopBarTypes.DASHBOART
 
-    var isOnAddExpenses = navigator.currentEntry.collectAsState(null).value?.route?.route.equals("/addExpenses/{id}?")
+    var isOnAddExpenses =
+        navigator.currentEntry.collectAsState(null).value?.route?.route.equals("/addExpenses/{id}?")
     if (isOnAddExpenses) {
         titleTopBar = TitleTopBarTypes.ADD
     }
