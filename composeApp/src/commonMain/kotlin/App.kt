@@ -82,6 +82,7 @@ fun App() {
                                     imageVector = Icons.Default.Apps,
                                     tint = colors.textColor,
                                     contentDescription = "Dashboard Icon"
+
                                 )
                             }
 
