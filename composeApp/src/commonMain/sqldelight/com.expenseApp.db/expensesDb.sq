@@ -1,0 +1,6 @@
+CREATE TABLE  ExpenseEntity(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    amount REAL NOT NULL,
+    categoryName TEXT NOT NULL,
+
+);

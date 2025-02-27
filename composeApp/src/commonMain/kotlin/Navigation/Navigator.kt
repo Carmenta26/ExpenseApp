@@ -22,6 +22,8 @@ fun Navigation(navigator: Navigator){
     val viewModel = viewModel (modelClass = ExpensesViewModel::class){
         ExpensesViewModel (ExpenseRepoImpl(ExpeseManager))
     }
+
+    //skingle sign on
     NavHost(
         modifier = Modifier.background(color = colors.bagroundColor),
         navigator = navigator,
